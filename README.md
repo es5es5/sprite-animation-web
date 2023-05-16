@@ -1,1 +1,2 @@
-# sprite-animation-web
+$ npm install
+$ npx tsc -w
