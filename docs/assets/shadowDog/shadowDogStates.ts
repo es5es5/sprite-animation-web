@@ -1,43 +1,43 @@
-export const spriteAnimations = [];
+export const spriteAnimations = []
 export const animationStates = [
   {
-    name: "idle",
+    name: 'idle',
     frames: 7,
   },
   {
-    name: "jump",
+    name: 'jump',
     frames: 7,
   },
   {
-    name: "fall",
+    name: 'fall',
     frames: 7,
   },
   {
-    name: "run",
+    name: 'run',
     frames: 9,
   },
   {
-    name: "dizzy",
+    name: 'dizzy',
     frames: 11,
   },
   {
-    name: "sit",
+    name: 'sit',
     frames: 5,
   },
   {
-    name: "roll",
+    name: 'roll',
     frames: 7,
   },
   {
-    name: "bite",
+    name: 'bite',
     frames: 7,
   },
   {
-    name: "ko",
+    name: 'ko',
     frames: 12,
   },
   {
-    name: "getHit",
+    name: 'getHit',
     frames: 4,
   },
-];
+]
