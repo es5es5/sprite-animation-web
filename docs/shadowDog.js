@@ -1,4 +1,4 @@
-import { animationStates, spriteAnimations, spriteSettings, } from './assets/cat/states.js';
+import { animationStates, spriteAnimations, } from './assets/shadowDog/shadowDogStates';
 var canvas = document.getElementById('canvas1');
 var selectElement = document.getElementById('animations');
 animationStates.forEach(function (states) {
@@ -9,18 +9,18 @@ animationStates.forEach(function (states) {
 });
 selectElement.addEventListener('change', function (event) {
     var element = event.target;
-    currentState = element.value;
+    playerState = element.value;
 });
 var ctx = canvas.getContext('2d');
-var CANVAS_WIDTH = (canvas.width = 200);
-var CANVAS_HEIGHT = (canvas.height = 200);
+var CANVAS_WIDTH = (canvas.width = 600);
+var CANVAS_HEIGHT = (canvas.height = 600);
 var playerImage = new Image();
-playerImage.src = './assets/cat/cat.png';
-var spriteWidth = spriteSettings.spriteWidth;
-var spriteHeight = spriteSettings.spriteHeight;
-var currentState = spriteSettings.initialState;
+playerImage.src = './assets/shadowDog/shadowDog.png';
+var spriteWidth = 575;
+var spriteHeight = 523;
+var playerState = 'run';
 var gameFrame = 0;
-var staggerFrames = 10;
+var staggerFrames = 5;
 animationStates.forEach(function (state, index) {
     var frames = {
         loc: [],
@@ -31,15 +31,14 @@ animationStates.forEach(function (state, index) {
         frames.loc.push({ x: positionX, y: positionY });
     }
     spriteAnimations[state.name] = frames;
-    spriteAnimations[state.name].speed = state.speed;
 });
 var x = 0;
 function animate() {
     ctx === null || ctx === void 0 ? void 0 : ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    var position = Math.floor(gameFrame / spriteAnimations[currentState].speed) %
-        spriteAnimations[currentState].loc.length;
+    var position = Math.floor(gameFrame / staggerFrames) %
+        spriteAnimations[playerState].loc.length;
     var frameX = spriteWidth * position;
-    var frameY = spriteAnimations[currentState].loc[position].y;
+    var frameY = spriteAnimations[playerState].loc[position].y;
     ctx === null || ctx === void 0 ? void 0 : ctx.drawImage(playerImage, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
     gameFrame++;
     requestAnimationFrame(animate);

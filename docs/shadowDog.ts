@@ -1,8 +1,7 @@
 import {
   animationStates,
   spriteAnimations,
-  spriteSettings,
-} from './assets/cat/states.js'
+} from './assets/shadowDog/shadowDogStates'
 
 const canvas = document.getElementById('canvas1') as HTMLCanvasElement
 const selectElement = document.getElementById('animations') as HTMLSelectElement
@@ -15,22 +14,22 @@ animationStates.forEach((states) => {
 
 selectElement.addEventListener('change', (event: Event): void => {
   const element = event.target as HTMLSelectElement
-  currentState = element.value
+  playerState = element.value
 })
 
 const ctx = canvas.getContext('2d')
-const CANVAS_WIDTH = (canvas.width = 200)
-const CANVAS_HEIGHT = (canvas.height = 200)
+const CANVAS_WIDTH = (canvas.width = 600)
+const CANVAS_HEIGHT = (canvas.height = 600)
 
 const playerImage = new Image()
-playerImage.src = './assets/cat/cat.png'
+playerImage.src = './assets/shadowDog/shadowDog.png'
 
-const spriteWidth = spriteSettings.spriteWidth
-const spriteHeight = spriteSettings.spriteHeight
-let currentState = spriteSettings.initialState
+const spriteWidth = 575
+const spriteHeight = 523
+let playerState = 'run'
 
 let gameFrame = 0
-const staggerFrames = 10
+const staggerFrames = 5
 
 animationStates.forEach((state, index) => {
   let frames = {
@@ -42,17 +41,16 @@ animationStates.forEach((state, index) => {
     frames.loc.push({ x: positionX, y: positionY })
   }
   spriteAnimations[state.name] = frames
-  spriteAnimations[state.name].speed = state.speed
 })
 
 let x = 0
 function animate() {
   ctx?.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   let position =
-    Math.floor(gameFrame / spriteAnimations[currentState].speed) %
-    spriteAnimations[currentState].loc.length
+    Math.floor(gameFrame / staggerFrames) %
+    spriteAnimations[playerState].loc.length
   let frameX = spriteWidth * position
-  let frameY = spriteAnimations[currentState].loc[position].y
+  let frameY = spriteAnimations[playerState].loc[position].y
 
   ctx?.drawImage(
     playerImage,
