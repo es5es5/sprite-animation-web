@@ -34,6 +34,9 @@ var animationStates = [{
         name: 'sit',
         frames: 5,
     }, {
+        name: 'roll',
+        frames: 7,
+    }, {
         name: 'bite',
         frames: 7,
     }, {
