@@ -25,8 +25,8 @@ const CANVAS_HEIGHT = (canvas.height = 96)
 const backgroundImage = new Image()
 backgroundImage.src = './assets/map/map.png'
 
-const playerImage = new Image()
-playerImage.src = './assets/cat/cat.png'
+const catImage = new Image()
+catImage.src = './assets/cat/cat.png'
 
 const spriteWidth = spriteSettings.spriteWidth
 const spriteHeight = spriteSettings.spriteHeight
@@ -51,23 +51,28 @@ animationStates.forEach((state, index) => {
 let x = 0
 function animate() {
   ctx?.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-  ctx?.drawImage(backgroundImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   let position =
     Math.floor(gameFrame / spriteAnimations[currentState].speed) %
     spriteAnimations[currentState].loc.length
   let frameX = spriteWidth * position
   let frameY = spriteAnimations[currentState].loc[position].y
 
+  // Drawing Background
+  ctx?.drawImage(backgroundImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+
+  // Drawing Cat
   ctx?.drawImage(
-    playerImage,
-    frameX,
-    frameY,
-    spriteWidth,
-    spriteHeight,
-    CANVAS_WIDTH / 2 - spriteWidth / 2,
-    CANVAS_HEIGHT - spriteHeight - 3,
-    spriteWidth,
-    spriteHeight,
+    catImage,
+
+    frameX, // Sprite Frame X Start
+    frameY, // Sprite Frame Y Start
+    spriteWidth, // Sprite Frame X End
+    spriteHeight, // Sprite Frame Y End
+
+    CANVAS_WIDTH / 2 - spriteWidth / 2, // Drawing Position X Start
+    CANVAS_HEIGHT - spriteHeight - 1, // Drawing Position Y Start
+    spriteWidth, // Drawing Position X End
+    spriteHeight, // Drawing Position Y End
   )
 
   gameFrame++

@@ -13,7 +13,7 @@ export const animationStates = [
   {
     name: 'walk',
     frames: 6,
-    speed: 10,
+    speed: 5,
   },
   {
     name: 'sleep',

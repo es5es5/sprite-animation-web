@@ -16,8 +16,8 @@ var CANVAS_WIDTH = (canvas.width = 96);
 var CANVAS_HEIGHT = (canvas.height = 96);
 var backgroundImage = new Image();
 backgroundImage.src = './assets/map/map.png';
-var playerImage = new Image();
-playerImage.src = './assets/cat/cat.png';
+var catImage = new Image();
+catImage.src = './assets/cat/cat.png';
 var spriteWidth = spriteSettings.spriteWidth;
 var spriteHeight = spriteSettings.spriteHeight;
 var currentState = spriteSettings.initialState;
@@ -38,12 +38,21 @@ animationStates.forEach(function (state, index) {
 var x = 0;
 function animate() {
     ctx === null || ctx === void 0 ? void 0 : ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    ctx === null || ctx === void 0 ? void 0 : ctx.drawImage(backgroundImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     var position = Math.floor(gameFrame / spriteAnimations[currentState].speed) %
         spriteAnimations[currentState].loc.length;
     var frameX = spriteWidth * position;
     var frameY = spriteAnimations[currentState].loc[position].y;
-    ctx === null || ctx === void 0 ? void 0 : ctx.drawImage(playerImage, frameX, frameY, spriteWidth, spriteHeight, CANVAS_WIDTH / 2 - spriteWidth / 2, CANVAS_HEIGHT - spriteHeight - 3, spriteWidth, spriteHeight);
+    // Drawing Background
+    ctx === null || ctx === void 0 ? void 0 : ctx.drawImage(backgroundImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    // Drawing Cat
+    ctx === null || ctx === void 0 ? void 0 : ctx.drawImage(catImage, frameX, // Sprite Frame X Start
+    frameY, // Sprite Frame Y Start
+    spriteWidth, // Sprite Frame X End
+    spriteHeight, // Sprite Frame Y End
+    CANVAS_WIDTH / 2 - spriteWidth / 2, // Drawing Position X Start
+    CANVAS_HEIGHT - spriteHeight - 1, // Drawing Position Y Start
+    spriteWidth, // Drawing Position X End
+    spriteHeight);
     gameFrame++;
     requestAnimationFrame(animate);
 }
