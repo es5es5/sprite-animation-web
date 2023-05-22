@@ -12,8 +12,8 @@ selectElement.addEventListener('change', function (event) {
     currentState = element.value;
 });
 var ctx = canvas.getContext('2d');
-var CANVAS_WIDTH = (canvas.width = 200);
-var CANVAS_HEIGHT = (canvas.height = 200);
+var CANVAS_WIDTH = (canvas.width = 96);
+var CANVAS_HEIGHT = (canvas.height = 96);
 var backgroundImage = new Image();
 backgroundImage.src = './assets/map/map.png';
 var playerImage = new Image();

@@ -19,8 +19,8 @@ selectElement.addEventListener('change', (event: Event): void => {
 })
 
 const ctx = canvas.getContext('2d')
-const CANVAS_WIDTH = (canvas.width = 200)
-const CANVAS_HEIGHT = (canvas.height = 200)
+const CANVAS_WIDTH = (canvas.width = 96)
+const CANVAS_HEIGHT = (canvas.height = 96)
 
 const backgroundImage = new Image()
 backgroundImage.src = './assets/map/map.png'
