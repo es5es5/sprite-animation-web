@@ -15,4 +15,14 @@ export const animationStates = [
     frames: 6,
     speed: 10,
   },
+  {
+    name: 'sleep',
+    frames: 8,
+    speed: 10,
+  },
+  {
+    name: 'hawl',
+    frames: 8,
+    speed: 10,
+  },
 ]
