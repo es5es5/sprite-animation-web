@@ -22,6 +22,9 @@ const ctx = canvas.getContext('2d')
 const CANVAS_WIDTH = (canvas.width = 200)
 const CANVAS_HEIGHT = (canvas.height = 200)
 
+const backgroundImage = new Image()
+backgroundImage.src = './assets/map/map.png'
+
 const playerImage = new Image()
 playerImage.src = './assets/cat/cat.png'
 
@@ -48,6 +51,7 @@ animationStates.forEach((state, index) => {
 let x = 0
 function animate() {
   ctx?.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+  ctx?.drawImage(backgroundImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   let position =
     Math.floor(gameFrame / spriteAnimations[currentState].speed) %
     spriteAnimations[currentState].loc.length
@@ -60,8 +64,8 @@ function animate() {
     frameY,
     spriteWidth,
     spriteHeight,
-    0,
-    0,
+    CANVAS_WIDTH / 2 - spriteWidth / 2,
+    CANVAS_HEIGHT - spriteHeight - 3,
     spriteWidth,
     spriteHeight,
   )
