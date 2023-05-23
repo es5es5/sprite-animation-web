@@ -76,7 +76,7 @@ function animate() {
     spriteHeight, // Sprite Frame Y End
 
     CANVAS_WIDTH / 2 - spriteWidth / 2, // Drawing Position X Start
-    CANVAS_HEIGHT - spriteHeight - 1, // Drawing Position Y Start
+    CANVAS_HEIGHT - spriteHeight - 6, // Drawing Position Y Start
     spriteWidth, // Drawing Position X End
     spriteHeight, // Drawing Position Y End
   )
