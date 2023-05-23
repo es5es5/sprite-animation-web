@@ -25,6 +25,9 @@ const CANVAS_HEIGHT = (canvas.height = 96)
 const backgroundImage = new Image()
 backgroundImage.src = './assets/map/map.png'
 
+const homeImage = new Image()
+homeImage.src = './assets/map/home.png'
+
 const catImage = new Image()
 catImage.src = './assets/cat/cat.png'
 
@@ -59,6 +62,9 @@ function animate() {
 
   // Drawing Background
   ctx?.drawImage(backgroundImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+
+  // Drawing Home
+  ctx?.drawImage(homeImage, 1, 10, CANVAS_WIDTH - 2, CANVAS_HEIGHT - 11)
 
   // Drawing Cat
   ctx?.drawImage(

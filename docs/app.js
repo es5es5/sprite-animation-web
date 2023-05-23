@@ -16,6 +16,8 @@ var CANVAS_WIDTH = (canvas.width = 96);
 var CANVAS_HEIGHT = (canvas.height = 96);
 var backgroundImage = new Image();
 backgroundImage.src = './assets/map/map.png';
+var homeImage = new Image();
+homeImage.src = './assets/map/home.png';
 var catImage = new Image();
 catImage.src = './assets/cat/cat.png';
 var spriteWidth = spriteSettings.spriteWidth;
@@ -44,6 +46,8 @@ function animate() {
     var frameY = spriteAnimations[currentState].loc[position].y;
     // Drawing Background
     ctx === null || ctx === void 0 ? void 0 : ctx.drawImage(backgroundImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    // Drawing Home
+    ctx === null || ctx === void 0 ? void 0 : ctx.drawImage(homeImage, 1, 10, CANVAS_WIDTH - 2, CANVAS_HEIGHT - 11);
     // Drawing Cat
     ctx === null || ctx === void 0 ? void 0 : ctx.drawImage(catImage, frameX, // Sprite Frame X Start
     frameY, // Sprite Frame Y Start
