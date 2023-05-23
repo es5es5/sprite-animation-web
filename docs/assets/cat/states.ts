@@ -1,8 +1,8 @@
 export const spriteAnimations = []
 export const spriteSettings = {
   initialState: 'idle',
-  spriteWidth: 32,
-  spriteHeight: 32,
+  spriteWidth: 128,
+  spriteHeight: 128,
 }
 export const animationStates = [
   {

@@ -12,12 +12,18 @@ selectElement.addEventListener('change', function (event) {
     currentState = element.value;
 });
 var ctx = canvas.getContext('2d');
-var CANVAS_WIDTH = (canvas.width = 96);
-var CANVAS_HEIGHT = (canvas.height = 96);
+var CANVAS_WIDTH = (canvas.width = 360);
+var CANVAS_HEIGHT = (canvas.height = 370);
+var frameImage = new Image();
+frameImage.src = './assets/map/frame.png';
+var TITLE_BAR_HEIGHT = 37;
+var FRAME_PADDING = 4;
+var FRAME_WIDTH = (frameImage.width = CANVAS_WIDTH);
+var FRAME_HEIGHT = (frameImage.height = CANVAS_HEIGHT);
 var backgroundImage = new Image();
-backgroundImage.src = './assets/map/map.png';
-var homeImage = new Image();
-homeImage.src = './assets/map/home.png';
+backgroundImage.src = './assets/map/background.png';
+var BACKGROUND_WIDTH = (backgroundImage.width = 360);
+var BACKGROUND_HEIGHT = (backgroundImage.height = 360);
 var catImage = new Image();
 catImage.src = './assets/cat/cat.png';
 var spriteWidth = spriteSettings.spriteWidth;
@@ -44,17 +50,17 @@ function animate() {
         spriteAnimations[currentState].loc.length;
     var frameX = spriteWidth * position;
     var frameY = spriteAnimations[currentState].loc[position].y;
+    // Drawing Frame
+    ctx === null || ctx === void 0 ? void 0 : ctx.drawImage(frameImage, 0, 0, FRAME_WIDTH, FRAME_HEIGHT);
     // Drawing Background
-    ctx === null || ctx === void 0 ? void 0 : ctx.drawImage(backgroundImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    // Drawing Home
-    ctx === null || ctx === void 0 ? void 0 : ctx.drawImage(homeImage, 1, 10, CANVAS_WIDTH - 2, CANVAS_HEIGHT - 11);
+    ctx === null || ctx === void 0 ? void 0 : ctx.drawImage(backgroundImage, FRAME_PADDING, TITLE_BAR_HEIGHT, FRAME_WIDTH - FRAME_PADDING * 2, FRAME_HEIGHT - TITLE_BAR_HEIGHT - FRAME_PADDING);
     // Drawing Cat
     ctx === null || ctx === void 0 ? void 0 : ctx.drawImage(catImage, frameX, // Sprite Frame X Start
     frameY, // Sprite Frame Y Start
     spriteWidth, // Sprite Frame X End
     spriteHeight, // Sprite Frame Y End
     CANVAS_WIDTH / 2 - spriteWidth / 2, // Drawing Position X Start
-    CANVAS_HEIGHT - spriteHeight - 6, // Drawing Position Y Start
+    CANVAS_HEIGHT - spriteHeight - TITLE_BAR_HEIGHT + FRAME_PADDING * 2, // Drawing Position Y Start
     spriteWidth, // Drawing Position X End
     spriteHeight);
     gameFrame++;
