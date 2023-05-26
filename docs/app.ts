@@ -59,7 +59,7 @@ animationStates.forEach((state, index) => {
 
 let x = 0
 function animate() {
-  ctx?.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+  // ctx?.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   let position =
     Math.floor(gameFrame / spriteAnimations[currentState].speed) %
     spriteAnimations[currentState].loc.length

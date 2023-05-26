@@ -45,7 +45,7 @@ animationStates.forEach(function (state, index) {
 });
 var x = 0;
 function animate() {
-    ctx === null || ctx === void 0 ? void 0 : ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    // ctx?.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
     var position = Math.floor(gameFrame / spriteAnimations[currentState].speed) %
         spriteAnimations[currentState].loc.length;
     var frameX = spriteWidth * position;

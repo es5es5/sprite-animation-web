@@ -21,7 +21,22 @@ export const animationStates = [
     speed: 10,
   },
   {
+    name: 'wakeUp',
+    frames: 3,
+    speed: 10,
+  },
+  {
     name: 'hawl',
+    frames: 8,
+    speed: 10,
+  },
+  {
+    name: 'standing',
+    frames: 3,
+    speed: 10,
+  },
+  {
+    name: 'standing_walk',
     frames: 8,
     speed: 10,
   },
